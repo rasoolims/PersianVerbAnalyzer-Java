@@ -14,6 +14,12 @@ The following package consists of a rule-based verb inflector in Persian develop
 	In Springer library: <http://www.springerlink.com/content/n3r0181wu2h6p337/>
 
 
- - Please send the bugs and your questions to <rasooli.ms{AT}gmail.com>
+ - Please send the bugs and your questions to <rasooli{AT}cs.columbia.edu>
 
+ # Copy Right
+Under construction, but for the meanwhile here are the conditions:
+
+* Free for any research except for projects funded by defense/intelligence agencies outside Iran.
+
+* For commercial use, please contact me.
 
