@@ -1,6 +1,6 @@
 ### In the name of Allah
 
-# A modified version of my [C# verb anaylzer](https://github.com/rasoolims/PersianVerbAnalyzer)
+# # A modified version of my [C# verb anaylzer](https://github.com/rasoolims/PersianVerbAnalyzer)
 
 The following package consists of a rule-based verb inflector in Persian developed by [Mohammad Sadegh Rasooli](http://www.cs.columbia.edu/~rasooli/). The code was mainly used for preprocessing the [Persian dependency treebank](http://dadegan.ir/en). 
 
