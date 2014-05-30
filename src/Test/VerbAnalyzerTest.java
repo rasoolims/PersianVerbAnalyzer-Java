@@ -18,8 +18,11 @@ public class VerbAnalyzerTest {
     public static void main(String[] args) throws IOException {
         SentenceAnalyzer analyzer = new SentenceAnalyzer("/Users/msr/Projects/persianverbanalyzer/Data/VerbList.txt");
         String sentence =
-                "من دارم به شما می‌گویم که این صحبت‌ها به راحتی گفته نخواهد شد و من با شما صحبت زیاد خواهم کرد.";
+                 "من دارم به شما می‌گویم که این صحبت‌ها به راحتی گفته نخواهد شد و من با شما صحبت زیاد خواهم کرد.";
 
+        String sentence2=
+                "می‌خواهیم به همهٔ دنیا ثابت کنیم که ملتی غیور داریم داشته‌ایم و خواهیم داشت ."
+                ;
         VerbBasedSentence result = SentenceAnalyzer.MakeVerbBasedSentence(sentence);
         StringBuilder output = new StringBuilder();
         for (DependencyBasedToken dependencyBasedToken : result.SentenceTokens)
@@ -30,5 +33,25 @@ public class VerbAnalyzerTest {
                     dependencyBasedToken.DependencyRelation+'\n');
         }
         System.out.println(output.toString());
+
+        long startTime = System.currentTimeMillis();
+
+        for(int i=0;i<1000000;i++){
+         result = SentenceAnalyzer.MakeVerbBasedSentence(sentence2);
+         output = new StringBuilder();
+        for (DependencyBasedToken dependencyBasedToken : result.SentenceTokens)
+        {
+            output.append(dependencyBasedToken.WordForm + "\t" + dependencyBasedToken.Lemma + "\t" +
+                    dependencyBasedToken.CPOSTag
+                    + "\t" + (dependencyBasedToken.HeadNumber+1) + "\t" +
+                    dependencyBasedToken.DependencyRelation+'\n');
+        }
+       // System.out.println(i);
+        }
+        long endTime = System.currentTimeMillis();
+
+        long duration = endTime - startTime;
+
+        System.out.println((double)duration/1000000);
     }
 }
