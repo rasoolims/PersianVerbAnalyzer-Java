@@ -714,7 +714,7 @@ public class VerbPartTagger {
     /**
      * Get a very initial data about verbal information of each token : the sentence
      */
-    private static HashMap<Integer, Vector<Integer>> GetGoodResult(String[] sentence, String[] posSentence) throws IOException {
+    private static HashMap<Integer, Vector<Integer>> getVerbStates(String[] sentence, String[] posSentence) throws IOException {
         HashMap<Integer, Vector<VerbInflection>> inflectionList = GetVerbParts(sentence, posSentence);
 
         HashMap<Integer, Vector<Integer>> stateList = new HashMap<Integer, Vector<Integer>>();
@@ -2092,7 +2092,7 @@ public class VerbPartTagger {
     /**
      * Get a very initial data about verbal information of each token : the sentence
      */
-    private static HashMap<Integer, Vector<Integer>> GetGoodResult(String[] sentence) throws IOException {
+    private static HashMap<Integer, Vector<Integer>> getVerbStates(String[] sentence) throws IOException {
         HashMap<Integer, Vector<VerbInflection>> inflectionVector = GetVerbParts(sentence);
 
         HashMap<Integer, Vector<Integer>> stateList = new HashMap<Integer, Vector<Integer>>();
@@ -3509,7 +3509,7 @@ public class VerbPartTagger {
     private static HashMap<Integer, KeyValuePair<String, Integer>> GetOutputResult(String[] sentence, String[] posSentence, String[] newPOSTokens, String[] lemmas, String[] outLemmas) throws IOException {
         Vector<String> posTokens = new Vector<String>();
         Vector<String> newLemmas = new Vector<String>();
-        HashMap<Integer, Vector<Integer>> list = VerbPartTagger.GetGoodResult(sentence, posSentence);
+        HashMap<Integer, Vector<Integer>> list = VerbPartTagger.getVerbStates(sentence, posSentence);
         HashMap<Integer, KeyValuePair<String, Integer>> newVector = new HashMap<Integer, KeyValuePair<String, Integer>>();
         int counter = 0;
         StringBuilder tempStr = new StringBuilder();
@@ -3539,7 +3539,7 @@ public class VerbPartTagger {
      * get initial data for processing verb tokens : the sentence
      */
     private static HashMap<Integer, KeyValuePair<String, Integer>> GetOutputResult(String[] sentence) throws IOException {
-        HashMap<Integer, Vector<Integer>> list = GetGoodResult(sentence);
+        HashMap<Integer, Vector<Integer>> list = getVerbStates(sentence);
         HashMap<Integer, KeyValuePair<String, Integer>> newVector = new HashMap<Integer, KeyValuePair<String, Integer>>();
         int counter = 0;
         StringBuilder tempStr = new StringBuilder();
