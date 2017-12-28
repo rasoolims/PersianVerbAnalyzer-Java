@@ -19,9 +19,9 @@ public class VerbList {
     /***
         Saves all possible inflections of a special verb representation
     ***/
-    public static HashMap<  String, Vector<VerbInflection>> VerbShapes;
+    public static HashMap<String, Vector<VerbInflection>> VerbShapes;
 
-    public static  HashMap< String, Vector< String>> VerbPishvandiDic;
+    public static  HashMap<String, Vector< String>> VerbPishvandiDic;
 
     /***
         A dictionay of possible complex predicates in Persian verbs
@@ -345,5 +345,11 @@ public class VerbList {
                 }
             }
         }
+       /* 
+        BufferedWriter tempWriter = new BufferedWriter(new FileWriter("/Users/msr/Desktop/khamenei/persian-verbs.txt"));
+        for(String l:VerbShapes.keySet())
+            tempWriter.write(l+"\n");
+        tempWriter.close();
+        */
     }
 }

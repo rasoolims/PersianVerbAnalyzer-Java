@@ -16,10 +16,9 @@ import java.io.IOException;
 
 public class VerbAnalyzerTest {
     public static void main(String[] args) throws IOException {
-        SentenceAnalyzer analyzer = new SentenceAnalyzer("/Users/msr/Projects/persianverbanalyzer/Data/VerbList.txt");
+        SentenceAnalyzer analyzer = new SentenceAnalyzer(args[0]);
         String sentence =
-                 "من دارم به شما می‌گویم که این صحبت‌ها به راحتی گفته نخواهد شد و من با شما صحبت زیاد خواهم کرد.";
-
+                "علی در این فاصله زمین خورد و نتوانست حرکت کند .";
         String sentence2=
                 "می‌خواهیم به همهٔ دنیا ثابت کنیم که ملتی غیور داریم داشته‌ایم و خواهیم داشت ."
                 ;
