@@ -141,7 +141,9 @@ public class Verb implements Comparable{
         if (!(obj instanceof Verb))
             return false;
         Verb verb = (Verb) obj;
-        if(verb.PastTenseRoot==PastTenseRoot && verb.PresentTenseRoot==PresentTenseRoot&& verb.Prefix==Prefix&& verb.PrepositionOfVerb==PrepositionOfVerb && verb.NonVerbalElement==NonVerbalElement && verb.Transitivity==Transitivity && verb.CanBeImperative==CanBeImperative)
+        if(verb.PastTenseRoot.equals(PastTenseRoot) && verb.PresentTenseRoot.equals(PresentTenseRoot) && verb.Prefix.equals(Prefix) &&
+                verb.PrepositionOfVerb.equals(PrepositionOfVerb) && verb.NonVerbalElement.equals(NonVerbalElement) &&
+                verb.Transitivity.equals(Transitivity) && verb.CanBeImperative==CanBeImperative)
             return true;
         return false;
     }
