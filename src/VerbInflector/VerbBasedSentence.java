@@ -1,6 +1,6 @@
 package VerbInflector;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * Created by Mohammad Sadegh Rasooli.
@@ -11,36 +11,39 @@ import java.util.Vector;
  */
 
 public class VerbBasedSentence {
-    public Vector<DependencyBasedToken> SentenceTokens;
-    public Vector<VerbInSentence> VerbsInSentence ;
+    public DependencyBasedToken[] sentenceTokens;
+    public ArrayList<VerbInSentence> VerbsInSentence ;
 
-    public VerbBasedSentence(Vector<DependencyBasedToken> tokens)
+    public VerbBasedSentence(ArrayList<DependencyBasedToken> tokens)
     {
-        SentenceTokens = tokens;
-        VerbsInSentence=new Vector<VerbInSentence>();
+        sentenceTokens = new DependencyBasedToken[tokens.size()];
+        for(int i=0; i<tokens.size();i++)
+            sentenceTokens[tokens.get(i).Position-1] = tokens.get(i);
+
+        VerbsInSentence=new ArrayList<VerbInSentence>();
         for (int i = tokens.size()-1; i>=0; i--)
         {
-            if(tokens.elementAt(i).CPOSTag.equals("V") && !tokens.elementAt(i).DependencyRelation.equals("PROG"))
+            if(tokens.get(i).CPOSTag.equals("V") && !tokens.get(i).DependencyRelation.equals("PROG"))
             {
                 VerbInSentence vis=new VerbInSentence(i);
                 VerbsInSentence.add(vis);
             }
-            if(tokens.elementAt(i).DependencyRelation.equals("POSDEP"))
+            if(tokens.get(i).DependencyRelation.equals("POSDEP"))
             {
                 for (VerbInSentence verbInSentence : VerbsInSentence)
                 {
-                    if (verbInSentence.LightVerbIndex == tokens.elementAt(i - 1).HeadNumber)
+                    if (verbInSentence.LightVerbIndex == tokens.get(i - 1).HeadNumber)
                     {
                         verbInSentence.NonVerbalElementIndex = i;
                         verbInSentence.VerbalPrepositionIndex = i - 1;
                     }
                 }
             }
-            else if(tokens.elementAt(i).DependencyRelation=="NVE")
+            else if(tokens.get(i).DependencyRelation=="NVE")
             {
                 for (VerbInSentence verbInSentence : VerbsInSentence)
                 {
-                    if (verbInSentence.LightVerbIndex == tokens.elementAt(i).HeadNumber)
+                    if (verbInSentence.LightVerbIndex == tokens.get(i).HeadNumber)
                     {
                         verbInSentence.NonVerbalElementIndex = i;
                     }

@@ -1,6 +1,7 @@
 package VerbInflector;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
@@ -794,8 +795,8 @@ public class SentenceAnalyzer {
    /**
      makes a partial dependency tree : where only verb parts are tagged
     **/
-    private static Vector<DependencyBasedToken> MakePartialDependencyTree(String[] sentence) throws IOException {
-        Vector<DependencyBasedToken> tree = new Vector<DependencyBasedToken>();
+    private static ArrayList<DependencyBasedToken> MakePartialDependencyTree(String[] sentence) throws IOException {
+        ArrayList<DependencyBasedToken> tree = new ArrayList<DependencyBasedToken>();
 
         HashMap<Integer, KeyValuePair<String, KeyValuePair<Integer, Object>>> dic = VerbPartTagger.MakePartialTree(sentence, verbDicPath);
         int indexOfOriginalWords = 0;
@@ -974,8 +975,8 @@ public class SentenceAnalyzer {
       You need to have a POS tagger and a lemmatizer
      The tagset is similar to Bijankhan corpus
     **/
-    private static Vector<DependencyBasedToken> MakePartialDependencyTree(String[] sentence, String[] posSentence, String[] lemmas, MorphoSyntacticFeatures[] morphoSyntacticFeatureses) throws IOException {
-        Vector<DependencyBasedToken> tree = new Vector<DependencyBasedToken>();
+    private static ArrayList<DependencyBasedToken> MakePartialDependencyTree(String[] sentence, String[] posSentence, String[] lemmas, MorphoSyntacticFeatures[] morphoSyntacticFeatureses) throws IOException {
+        ArrayList<DependencyBasedToken> tree = new ArrayList<DependencyBasedToken>();
         String[] outpos=new String[10];
         HashMap<Integer, KeyValuePair<String, KeyValuePair<Integer, Object>>> dic = VerbPartTagger.MakePartialTree(sentence, posSentence, outpos, lemmas, verbDicPath);
         int indexOfOriginalWords = 0;

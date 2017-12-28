@@ -21,7 +21,7 @@ public class VerbAnalyzerTest {
                 "من دارم به شما می‌گویم که این صحبت‌ها به راحتی گفته نخواهد شد و من با شما صحبت زیاد خواهم کرد .";
         VerbBasedSentence result = SentenceAnalyzer.MakeVerbBasedSentence(sentence);
         StringBuilder output = new StringBuilder();
-        for (DependencyBasedToken dependencyBasedToken : result.SentenceTokens) {
+        for (DependencyBasedToken dependencyBasedToken : result.sentenceTokens) {
             output.append(dependencyBasedToken.WordForm + "\t" + dependencyBasedToken.Lemma + "\t" +
                     dependencyBasedToken.CPOSTag
                     + "\t" + (dependencyBasedToken.HeadNumber + 1) + "\t" +
@@ -35,7 +35,7 @@ public class VerbAnalyzerTest {
         for (int i = 0; i < 1000000; i++) {
             result = SentenceAnalyzer.MakeVerbBasedSentence(sentence);
             output = new StringBuilder();
-            for (DependencyBasedToken dependencyBasedToken : result.SentenceTokens) {
+            for (DependencyBasedToken dependencyBasedToken : result.sentenceTokens) {
                 output.append(dependencyBasedToken.WordForm + "\t" + dependencyBasedToken.Lemma + "\t" +
                         dependencyBasedToken.CPOSTag
                         + "\t" + (dependencyBasedToken.HeadNumber + 1) + "\t" +
