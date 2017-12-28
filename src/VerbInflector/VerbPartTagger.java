@@ -629,7 +629,7 @@ public class VerbPartTagger {
                 MostamarSaz newValue = (MostamarSaz) dic.get(key).getValue();
                 partialTree.put(key, new KeyValuePair<String, KeyValuePair<Integer, Object>>(value, new KeyValuePair<Integer, Object>(newValue.Head, newValue)));
 
-            } else if (((KeyValuePair<String, Object>) dic.get(key)).getValue() instanceof Integer) {
+            } else if (dic.get(key).getValue() instanceof KeyValuePair) {
                 KeyValuePair<String, Integer> newValue = (KeyValuePair<String, Integer>) dic.get(key).getValue();
                 if (key > 0 && ((KeyValuePair<String, Object>) dic.get(key - 1)).getValue() instanceof Integer) {
                     KeyValuePair<String, Integer> prevValue = (KeyValuePair<String, Integer>) dic.get(key - 1).getValue();
@@ -677,7 +677,7 @@ public class VerbPartTagger {
                 MostamarSaz newValue = (MostamarSaz) dic.get(key).getValue();
                 partialTree.put(key, new KeyValuePair<String, KeyValuePair<Integer, Object>>(value, new KeyValuePair<Integer, Object>(newValue.Head, newValue)));
 
-            } else if (((KeyValuePair<String, Object>) dic.get(key)).getValue() instanceof Integer) {
+            } else if (dic.get(key).getValue() instanceof KeyValuePair) {
                 KeyValuePair<String, Integer> newValue = (KeyValuePair<String, Integer>) dic.get(key).getValue();
                 if (key > 0 && ((KeyValuePair<String, Object>) dic.get(key - 1)).getValue() instanceof Integer) {
                     KeyValuePair<String, Integer> prevValue = (KeyValuePair<String, Integer>) dic.get(key - 1).getValue();
