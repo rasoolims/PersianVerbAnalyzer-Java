@@ -345,11 +345,5 @@ public class VerbList {
                 }
             }
         }
-       /* 
-        BufferedWriter tempWriter = new BufferedWriter(new FileWriter("/Users/msr/Desktop/khamenei/persian-verbs.txt"));
-        for(String l:VerbShapes.keySet())
-            tempWriter.write(l+"\n");
-        tempWriter.close();
-        */
     }
 }
